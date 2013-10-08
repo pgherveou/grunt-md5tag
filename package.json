@@ -1,6 +1,6 @@
 {
   "name": "grunt-md5tag",
-  "description": "tag and replace references your prod file with md5 hash",
+  "description": "tag and replace references to your prod file with md5 hash",
   "version": "0.1.0",
   "homepage": "https://github.com/pgherveou/grunt-md5tag",
   "author": {

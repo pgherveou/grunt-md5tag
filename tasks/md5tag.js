@@ -13,7 +13,7 @@ var fs = require('fs'),
  */
 
 module.exports = function(grunt) {
-  grunt.registerMultiTask('md5tag', 'tag and replace references your prod file with md5 hash', function() {
+  grunt.registerMultiTask('md5tag', 'tag and replace references to your prod file with md5 hash', function() {
 
     /**
      * get md5 for filepath

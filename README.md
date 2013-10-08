@@ -1,6 +1,6 @@
 # grunt-md5tag
 
-> tag and replace references your prod file with md5 hash
+> tag and replace references to your prod file with md5 hash
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`

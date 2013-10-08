@@ -46,8 +46,7 @@ module.exports = function(grunt) {
     md5tag: {
       'test-ok': {
         options: {
-          rename: ['**/*.js', '**/*.css', '**/*.jpg'],
-          pattern: '{basename}.{md5}{extname}'
+          rename: ['**/*.js', '**/*.css', '**/*.jpg']
         },
         files: [{
           expand: true,
@@ -66,7 +65,6 @@ module.exports = function(grunt) {
           src: ['**/*.*']
         }]
       }
-
     },
 
     // Unit tests.

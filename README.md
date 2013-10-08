@@ -34,38 +34,23 @@ grunt.initConfig({
   },
 })
 
-({
-  options: {
-  },
-  files: [
-    {
-      expand: true,
-      cwd: 'dist/prod/',
-      src: '**',
-      dest: ''
-    }
-  ]
-});
-
 
 grunt.initConfig({
   md5tag: {
-    options: {
-      rename: ['*.{css,js,png,jpg,gif}'] // which files should be renamed with the md5 hash
-      pattern: '{basename}.{md5}.{ext}' // file transformation pattern
-    },
-    files: [ // list of file that will either be renamed or updated with new md5 file name reference
-    {
-      expand: true,
-      cwd: 'dist/prod/',
-      src: '**',
-      dest: ''
+    myTarget: {
+      options: {
+        rename: ['**/*.js', '**/*.css', '**/*.jpg'], // filter files and add an md5 hash on this files
+        pattern: '{basename}.{md5}{extname}' // file pattern
+      },
+
+      // files to scan and update with md5 references
+      files: [{
+        expand: true,
+        cwd: 'test/dist/fixtures/test-ok',
+        src: ['**/*.*']
+      }]
     }
-  ]
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+  }
 })
 ```
 

@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       return file.replace(basename, name);
     }
 
-    var options = this.options(),
+    var options = this.options({pattern: '{basename}.{md5}{extname}'}),
         files = this.filesSrc,
         mappings = {};
 

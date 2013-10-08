@@ -1,0 +1,43 @@
+{
+  "name": "grunt-md5tag",
+  "description": "tag and replace references your prod file with md5 hash",
+  "version": "0.1.0",
+  "homepage": "https://github.com/pgherveou/grunt-md5tag",
+  "author": {
+    "name": "PG Herveou",
+    "email": "pgherveou@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pgherveou/grunt-md5tag.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pgherveou/grunt-md5tag/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/pgherveou/grunt-md5tag/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "0.x",
+    "grunt-contrib-clean": "0.x",
+    "grunt-contrib-nodeunit": "0.x",
+    "grunt-contrib-copy": "0.x",
+    "grunt": "0.x"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

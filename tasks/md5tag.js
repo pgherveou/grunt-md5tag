@@ -32,9 +32,14 @@ module.exports = function(grunt) {
       return file.replace(basename, name);
     }
 
-    var options = this.options({pattern: '{basename}.{md5}{extname}'}),
-        files = this.filesSrc,
-        mappings = {};
+    var files = this.filesSrc,
+        mappings = {},
+        options;
+
+    // merge options with defaults
+    options = this.options({
+      pattern: '{basename}.{md5}{extname}'
+    });
 
     // add md5 hash to transform group
     grunt.file.match(options.rename, files).forEach(function (f) {
@@ -51,7 +56,7 @@ module.exports = function(grunt) {
 
       // rename file
       fs.renameSync(f, fileOut);
-      grunt.verbose.writeln('map ' + f + ' with ' + fileOut);
+      grunt.log.writeln('rename ' + basename + ' to ' + mappings[basename]);
     });
 
     // update references to update group

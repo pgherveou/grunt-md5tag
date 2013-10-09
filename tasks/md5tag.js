@@ -67,20 +67,22 @@ module.exports = function(grunt) {
     files.forEach(function (file) {
       var basename = path.basename(file),
           mapping = mappings[basename],
-          data;
+          data, update;
 
       // get md5 filepath
       if (mapping) file = file.replace(basename, mapping);
 
       // search and replace file content
-      data = grunt.file.read(file);
+      data = update = grunt.file.read(file);
       Object.keys(mappings).forEach(function(key) {
-        data = data.replace(new RegExp(key, 'g'), mappings[key]);
+        update = update.replace(new RegExp(key, 'g'), mappings[key]);
       });
 
       // update file
-      grunt.verbose.writeln('updating file', file);
-      grunt.file.write(file, data);
+      if (data !== update) {
+        grunt.log.writeln('updating file', file);
+        grunt.file.write(file, update);
+      }
     });
   });
 };

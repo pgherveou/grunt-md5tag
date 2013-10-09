@@ -32,6 +32,7 @@ module.exports = function(grunt) {
       return file.replace(basename, name);
     }
 
+
     var files = this.filesSrc,
         mappings = {},
         options;
@@ -41,23 +42,26 @@ module.exports = function(grunt) {
       pattern: '{basename}.{md5}{extname}'
     });
 
+
     // add md5 hash to transform group
-    grunt.file.match(options.rename, files).forEach(function (f) {
-      var fileOut = md5(f),
-          basename = path.basename(f);
+    grunt.file
+      .match({matchBase: true}, options.rename, files)
+      .forEach(function (f) {
+        var fileOut = md5(f),
+            basename = path.basename(f);
 
-      // check mapping is unique
-      if (mappings[basename]) {
-        grunt.fail.fatal('basename ' + basename + ' is not unique');
-      }
+        // check mapping is unique
+        if (mappings[basename]) {
+          grunt.fail.fatal('basename ' + basename + ' is not unique');
+        }
 
-      // save mapping
-      mappings[basename] = path.basename(fileOut);
+        // save mapping
+        mappings[basename] = path.basename(fileOut);
 
-      // rename file
-      fs.renameSync(f, fileOut);
-      grunt.log.writeln('rename ' + basename + ' to ' + mappings[basename]);
-    });
+        // rename file
+        fs.renameSync(f, fileOut);
+        grunt.log.writeln('rename ' + basename + ' to ' + mappings[basename]);
+      });
 
     // update references to update group
     files.forEach(function (file) {

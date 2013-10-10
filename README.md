@@ -47,7 +47,7 @@ grunt.initConfig({
 
 #### options.pattern
 Type: `String`
-Default value: `',  '`
+Default value: `{basename}.{md5}{extname}`
 
 Default pattern to rename files with md5 hash
 
